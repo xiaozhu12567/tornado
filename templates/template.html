@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--全局关闭自动转义-->
+{% autoescape None %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>template</title>
+</head>
+<body>
+
+{% if username != 'no' %}
+    欢迎 {{ username }} 登陆
+{% else %}
+    请登陆
+{% end %}
+
+<br>
+
+{% set a=0 %}
+
+{% while a < 5 %}
+    {{ a }}<br>
+    {% set a += 1 %}
+{% end %}
+
+<br>
+tornado自动转义<br>
+{{ at }}
+<br>
+
+tornado局部关闭自动转义<br>
+{% raw at %}
+<br>
+
+设置全局关闭转义后个别地方开启转义<br>
+{{ escape(at) }}
+
+<!--{{ time.time() }}-->
+{# time.time() #}
+
+<br>
+将两个大括号当作字符串
+{{! 模版 }} {%! %} {#! #}
+
+<br>
+引入静态文件，使用static_url会自带一个版本号
+<br>
+<img src="{{ static_url('img/template.jpg') }}" width="250" height="250">
+<br>
+<img src="/static/img/template.jpg" width="250" height="250">
+<br>
+
+
+
+</body>
+</html>

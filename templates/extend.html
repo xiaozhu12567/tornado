@@ -1,0 +1,18 @@
+{% extends ./base.html%}
+
+{% block body %}
+  hehe
+  <br>
+ {% include ./include.html %}
+  <br>
+  先实例化类然后在调用类中的方法
+  <br>
+  {{ Cal().sum(1,2)}}
+  <br>
+  {% from util.tools import add %}
+  {{ add(2,3) }}
+  <br>
+  {{ methods1() }}
+  <br>
+  {% module UiModule() %}
+{% end %}
