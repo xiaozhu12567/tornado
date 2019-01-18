@@ -6,7 +6,8 @@
 </head>
 <body>
 
-<form method="post" action="/index">
+<form method="post" action="/index?next={{ next }}">
+    {% module xsrf_form_html() %}
     <p>用户名： <br><input type="text" name="name"></p>
     <p>密码： <br><input type="password" name="password"></p>
     <input type="submit">
